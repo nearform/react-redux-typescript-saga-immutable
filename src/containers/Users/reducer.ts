@@ -1,11 +1,6 @@
 import { fromJS } from 'immutable';
 
-import {
-  USERS_SAMPLE_FETCH,
-  USERS_SAMPLE_FETCH_SUCCESS,
-  USERS_SAMPLE_FETCH_ERROR
-} from './actionTypes';
-
+import { actionTypes as at } from './constants';
 import { UserAction } from './model';
 
 const initialState = fromJS({
@@ -16,17 +11,17 @@ const initialState = fromJS({
 
 export default (state = initialState, action: UserAction) => {
   switch (action.type) {
-    case USERS_SAMPLE_FETCH:
+    case at.USERS_SAMPLE_FETCH:
       return state
         .set('isLoading', true)
         .set('isFetched', false)
         .set('users', initialState.get('users'));
-    case USERS_SAMPLE_FETCH_SUCCESS:
+    case at.USERS_SAMPLE_FETCH_SUCCESS:
       return state
         .set('isLoading', false)
         .set('isFetched', true)
         .set('users', fromJS(action.payload));
-    case USERS_SAMPLE_FETCH_ERROR:
+    case at.USERS_SAMPLE_FETCH_ERROR:
       return state
         .set('isLoading', false)
         .set('isFetched', false)

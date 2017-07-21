@@ -1,19 +1,19 @@
 import { createSelector } from 'reselect';
 
-const selectUsersDomain = () => (state: any) => state.get('usersDomain');
+const getUsersDomain = () => (state: any) => state.get('usersDomain');
 
 const selectUsers = () => createSelector(
-  selectUsersDomain(),
+  getUsersDomain(),
   usersState => usersState.get('users').toJS()
 );
 
 const selectIsLoading = () => createSelector(
-  selectUsersDomain(),
+  getUsersDomain(),
   usersState => usersState.get('isLoading')
 );
 
 const selectIsFetched = () => createSelector(
-  selectUsersDomain(),
+  getUsersDomain(),
   usersState => usersState.get('isFetched')
 );
 
@@ -22,3 +22,5 @@ export {
   selectIsLoading,
   selectIsFetched
 };
+
+export default getUsersDomain;
