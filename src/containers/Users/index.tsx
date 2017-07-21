@@ -3,7 +3,7 @@ import { createStructuredSelector } from 'reselect';
 const connect = require('react-redux').connect;
 
 import { fetch } from './actions';
-import { selectUsers, selectIsLoading, selectIsFetched } from './selector';
+import { selectUsers, selectIsLoading, selectIsFetched } from './selectors';
 import { User } from './model';
 
 import Container from '../../components/Container';

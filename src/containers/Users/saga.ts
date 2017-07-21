@@ -1,18 +1,9 @@
 import { call, put, take } from 'redux-saga/effects';
 
-import {
-  fetchUsers
-} from './service';
-import {
-  USERS_SAMPLE_FETCH
-} from './actionTypes';
-import {
-  fetchSuccess,
-  fetchError
-} from './actions';
-import {
-  User
-} from './model';
+import { fetchUsers } from './service';
+import { actionTypes as at } from './constants';
+import { fetchSuccess, fetchError } from './actions';
+import { User } from './model';
 
 export function* fetchUsersList(id: string) {
   try {
@@ -26,7 +17,7 @@ export function* fetchUsersList(id: string) {
 
 export function* sampleWatcher() {
   while (true) {
-    const { id } = yield take(USERS_SAMPLE_FETCH);
+    const { id } = yield take(at.USERS_SAMPLE_FETCH);
 
     yield call(fetchUsersList, id);
   }
